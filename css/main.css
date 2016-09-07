@@ -41,6 +41,10 @@ nav a:after {
   padding-left: .5em;
 }
 
+main {
+  width: 70%;
+}
+
 article p {
   margin: 1em 0;
 }
@@ -58,3 +62,7 @@ section ul {
   margin-top: 3em;
 }
 
+.code {
+  background: #eee;
+  padding: 1em;
+}
