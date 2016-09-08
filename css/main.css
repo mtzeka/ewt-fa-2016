@@ -1,5 +1,5 @@
 body {
-  font-family: 'Menlo';
+  font-family: 'Menlo', 'Lucida Console', monospace;
   margin: 1em;
   line-height: 2em;
 }
