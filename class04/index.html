@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Web Emergent Technologies - Fall 2016</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+  </head>
+  <body>
+    <header>
+      <h1>Responsive Images Pt. 2</h1>
+      <h2>9.28.2016</h2>
+    </header>
+    <main class="mt-3">
+      <article>
+        <section>
+          <h2>Friendly reminders</h2>
+          <ol>
+            <li>Make sure your classwork is linked on your page by the end of class so I can give you credit.</li>
+            <li>Make sure your link works.</li>
+            <li>Make sure your homework is linked on your page by the beginning of class.</li>
+            <li>If you're stuck of have questions, don't hesitate to email me.</li>
+          </ol>
+        </section>
+        <section>
+          <h2>Github Review</h2>
+          <ul>
+            <li>Pull Requests</li>
+            <li><a href="https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf" target="_blank">Git command cheat sheet</a></li>
+            <li><a href="https://try.github.io/levels/1/challenges/1" target="_blank">Github training</a></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Responsive Images</h2>
+          <p>
+            There are two different usages of responsive images:
+            <ol>
+              <li>Resolution switching</li>
+              <li>Art direction</li>
+            </ol>
+          </p>
+          <p>NOTE: Remember to have your cache disabled for dev purposes!</p>
+          <h3>1. Resolution Switching example</h3>
+          <p class="code">
+            &lt;img src="elva-fairy-800w.jpg" alt="Elva dressed as a fairy"&gt;<br/>
+          </p>
+          <p class="code">
+            // Using different sizes (<a href="http://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/responsive.html" target="_blank">example</a>)<br/>
+            &lt;img<br/>
+            &nbsp;&nbsp;srcset="elva-fairy-320w.jpg 320w,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;elva-fairy-480w.jpg 480w,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;elva-fairy-800w.jpg 800w"<br/>
+            &nbsp;&nbsp;sizes="(max-width: 320px) 280px,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;(max-width: 480px) 440px,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;800px"<br/>
+            &nbsp;&nbsp;src="elva-fairy-800w.jpg" alt="Elva dressed as a fairy"<br/>
+            &gt;<br/>
+          </p>
+          <p class="code">
+            // Using the same sizes but different resolutions (<a href="http://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/srcset-resolutions.html" target="_blank">example</a>)<br/>
+            &lt;img<br/>
+            &nbsp;&nbsp;srcset="elva-fairy-320w.jpg,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;elva-fairy-480w.jpg 1.5x,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;elva-fairy-640w.jpg 2x"<br/>
+            &nbsp;&nbsp;src="elva-fairy-640w.jpg" alt="Elva dressed as a fairy"<br/>
+            &gt;<br/>
+          </p>
+          <h3>2. Art direction example</h3>
+          <p class="code">
+            &lt;img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva"&gt;<br/>
+          </p>
+          <p class="code">
+            // <a href="http://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/responsive.html" target="_blank">example</a><br/>
+            &lt;picture&gt;<br/>
+              &nbsp;&nbsp;&lt;source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg"&gt;<br/>
+              &nbsp;&nbsp;&lt;source media="(min-width: 800px)" srcset="elva-800w.jpg"&gt;<br/>
+              &nbsp;&nbsp;&lt;img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva"&gt;<br/>
+            &lt;/picture&gt;<br/>
+          </p>
+          <p>
+            (The two examples above are borrowed from <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images" target="_blank">MDN</a>)
+          </p>
+        </section>
+        <section>
+          <h2>SCSS</h2>
+          <p>Installlation</p>
+          <p class="code">
+            gem install sass<br/>
+          </p>
+          <p>Watch mode</p>
+          <p class="code">
+            sass --watch style.scss<br/>
+          </p>
+          <p>Topics:</p>
+          <ol>
+            <li><a href="http://sass-lang.com/guide#topic-2" target="_blank">Variables</a></li>
+            <li><a href="http://sass-lang.com/guide#topic-3" target="_blank">Nesting</a></li>
+            <li><a href="http://sass-lang.com/guide#topic-6" target="_blank">Mixins</a></li>
+          </ol>
+        </section>
+        <section>
+          <h2>Package Managers</h2>
+          <li><a href="http://brew.sh/index.html" target="_blank">Homebrew</a></li>
+          <li><a href="https://rubygems.org/" target="_blank">Ruby Gems</a></li>
+          <li><a href="https://www.npmjs.com/" target="_blank">NPM</a></li>
+          <li><a href="https://bower.io/" target="_blank">Bower</a></li>
+        </section>
+        <section>
+          <h2>Additional Resources</h2>
+          <ul>
+            <li><a href="http://alistapart.com/article/responsive-images-in-practice" target="_blank">Responsive images in practice</a></li>
+            <li><a href="http://blog.teamtreehouse.com/the-absolute-beginners-guide-to-sass" target="_blank">The absolute beginner's guide to sass</a></li>
+            <li><a href="http://thesassway.com/" target="_blank">The SASS way</a></li>
+          </li>
+        </section>
+        <section>
+          <h2>Classwork</h2>
+          <ol>
+            <li>Work on the Art direction exercise from the lynda exercises</li>
+            <li>Download the SCSS classwork zip from moodle</li>
+          </ol>
+        </section>
+        <section>
+          <h2>HW</h2>
+          <p>Download the homework zip from moodle and convert the css to scss.</p>
+          <p>
+            Guidelines:
+            <ol>
+              <li>
+                Define 6 variables (minimum). Create a variable for:
+                <ul>
+                  <li>Colors -- eliminate repeated use of colors</li>
+                  <li>Width/breakpoint values for table as well as desktop</li>
+                  <li>Animations</li>
+                  <li>Anything else that you notice is repeated</li>
+                </ul>
+              </li>
+              <li>
+                Create two mixins for any css rules that are repeated from vendor prefixes. One of your mixins will need to take a variable argument.
+              </li>
+              <li>
+                Nest rules Wherever you notice a child or a psuedo selector. Some will use the `&` for back-references.
+              </li>
+            </ol>
+          </p>
+        </section>
+        <section>
+          <h2>Next Week!</h2>
+          <ul>
+            <li>SCSS pt. 2</li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer class="mt-3">
+      <a href="/ewt-fa-2016">&larr; Go back</a>
+    </footer>
+  </body>
+</html>
