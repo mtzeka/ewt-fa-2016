@@ -1,0 +1,19 @@
+.foo {
+  color: white; }
+
+.bar {
+  color: #100848; }
+
+.baz {
+  color: #5036ff; }
+
+.far {
+  color: #7263d2; }
+
+.boo {
+  color: compliment(#5f4aeb); }
+
+.faz {
+  color: #a0b514; }
+
+/*# sourceMappingURL=style.css.map */
