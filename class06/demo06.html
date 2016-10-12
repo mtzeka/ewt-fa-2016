@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Web Emergent Technologies - Fall 2016</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <style>
+      .container {display: flex; border: 10px solid #000; height: 150px;}
+      .box {padding: 20px; flex: 1;}
+      .box1 {background: gray; font-size: 3em;}
+      .box2 {background: orange; font-size: 4em;}
+      .box3 {background: purple; font-size: 2em;}
+      .box4 {background: pink; font-size: 5em;}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Flexbox Demo - Aligning</h1>
+      <h2>10.12.2016</h2>
+    </header>
+    <main class="mt-3">
+      <article>
+        <section>
+          <h2>align-items: stretch; (default)</h2>
+          <div class="container">
+            <div class='box box1'>1</div>
+            <div class='box box2'>2</div>
+            <div class='box box3'>3</div>
+            <div class='box box4'>4</div>
+          </div>
+        </section>
+        <section>
+          <h2>align-items: flex-start;</h2>
+          <div class="container" style="align-items: flex-start;">
+            <div class='box box1'>1</div>
+            <div class='box box2'>2</div>
+            <div class='box box3'>3</div>
+            <div class='box box4'>4</div>
+          </div>
+        </section>
+        <section>
+          <h2>align-items: center;</h2>
+          <div class="container" style="align-items: center;">
+            <div class='box box1'>1</div>
+            <div class='box box2'>2</div>
+            <div class='box box3'>3</div>
+            <div class='box box4'>4</div>
+          </div>
+        </section>
+        <section>
+          <h2>align-items: flex-end;</h2>
+          <div class="container" style="align-items: flex-end;">
+            <div class='box box1'>1</div>
+            <div class='box box2'>2</div>
+            <div class='box box3'>3</div>
+            <div class='box box4'>4</div>
+          </div>
+        </section>
+        <section>
+          <h2>align-items: baseline;</h2>
+          <div class="container" style="align-items: baseline;">
+            <div class='box box1'>1</div>
+            <div class='box box2'>2</div>
+            <div class='box box3'>3</div>
+            <div class='box box4'>4</div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer class="mt-3">
+      <a href="/ewt-fa-2016/class06">&larr; Go back</a>
+    </footer>
+  </body>
+</html>

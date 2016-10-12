@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Web Emergent Technologies - Fall 2016</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+  </head>
+  <body>
+    <header>
+      <h1>Flexbox</h1>
+      <h2>10.12.2016</h2>
+    </header>
+    <main class="mt-3">
+      <article>
+        <section>
+          <h2>The end of float and table layouts</h2>
+          <p>Flexbox is a new way to build layouts that doesn't involve hacky methods such as floating blocks to the left or using table rows and column. It's a whole new concept separate from those, and a much more <i>flexible</i> way to solve the needs of a layout.</p>
+          <p>We stil need the use of floats to aligning images, for example. So floats are not completely dead - they were just never meant to be used to build comoplex layouts.</p>
+          <p>For reference keep <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">A Complete Guide to Flexbox</a> open in a separate tab.</p>
+        </section>
+        <section>
+          <h2>Key concepts</h2>
+          <ul>
+            <li>Flex containers and flex items</li>
+            <li>Main/Cross axes (flex container)</li>
+            <li>Wrapping (flex container)</li>
+            <li>Aligning items (flex container)</li>
+            <li>Flex items flexing (flex item)</li>
+            <li>Ordering (flex item)</li>
+            <li>Aligning (flex item)</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Flex containers and flex items</h2>
+          <p>
+            By default all divs are <span class="inline code">display: block;</span>. To make any element a flexbox simply assign the value of the display property as "flex".
+          </p>
+<pre class="code">
+.content {
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+
+  /* According to http://shouldiprefix.com/#flexbox */
+}</pre>
+        <p>By setting an element to be display flex, all of its elements inside will automatically become flex items</p>
+        </section>
+        <section>
+          <h2>Main/Cross axes (flex container)</h2>
+          <p><a href="demo01.html">Demo</a></p>
+          <p>
+            A Flexbox layout always has a main axis and a cross axis. The main axis
+            is defined by the <code>flex-direction</code> property set on the
+            <strong>flex container</strong>.
+          </p>
+
+<pre class="code">
+/* main axis is X, cross axis is Y */
+.content {
+  display: flex;
+  flex-direction: row; /* default is row - no need to specify */
+}
+
+/* main axis is Y, cross axis is X */
+.content-alt {
+  display: flex;
+  flex-direction: column;
+}</pre>
+        </section>
+        <section>
+          <h2>Wrapping (flex container)</h2>
+          <p><a href="demo02.html">Demo</a></p>
+          <p>
+            By default, flex items will not wrap inside a flex container. They will
+            instead just line up along the main axis. If you <em>do</em> want your
+            flex items to wrap, you need to set the <code>flex-wrap</code> CSS
+            property to <code>wrap</code>.
+          </p>
+
+<pre class="code">
+/* flex items should wrap for skinny screens */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1000px) {
+  /* flex items should not wrap for wide screens */
+  .container {
+    flex-wrap: nowrap;
+  }
+}</pre>
+        </section>
+        <section>
+          <h2>Aligning items (flex container)</h2>
+          <p><a href="demo03.html">Demo</a></p>
+          <p>
+            To align items along the <strong>main axis</strong>, specify the
+            <code>justify-content</code> property on the flex container.
+          </p>
+
+          <p>
+            To align items along the <strong>cross axis</strong>, specify the
+            <code>align-content</code> property on the flex container.
+          </p>
+
+          <p>
+            See the
+            <a rel="external" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">article
+              on CSS-Tricks</a> for the possible values and visuals.
+          </p>
+        </section>
+        <section>
+          <h2>Flex items flexing (flex item)</h2>
+          <p><a href="demo04.html">Demo</a></p>
+          <p>
+            You can also control the flexing behavior of each flex item with 3 related
+            CSS properties, each applied to flex items (not the flex container):
+          </p>
+
+          <ol>
+            <li>
+              <code>flex-grow</code> - When there is extra space, the ratio by which
+              the item should grow. The default is <code>0</code>.
+            </li>
+            <li>
+              <code>flex-shrink</code> - When there is not enough space, the ratio by
+              which the item should shrink. The default is <code>0</code>.
+            </li>
+            <li>
+              <code>flex-basis</code> - The size of the flex item without any grow or
+              shrink. This is the width when <code>flex-direction</code> is
+              <code>row</code> (the default), or height when it's <code>column</code>.
+              The default is <code>auto</code>.
+            </li>
+          </ol>
+
+          <p>
+            The above are usually expressed in shorthand:
+            <code>flex: [flex-grow] [flex-shrink] [flex-basis];</code>. If your
+            <code>flex-grow</code> and <code>flex-shrink</code> values are the same,
+            and <code>flex-basis</code> is the default (<code>auto</code>), you can
+            make it even shorter: <code>flex: [flex-grow];</code>.
+          </p>
+
+          <p>
+            One important thing to note is that <code>flex-basis</code> acts as the
+            minimum width (or height) for the item when wrapping is applied.
+            <code>flex-wrap: wrap;</code> on the flex container and
+            <code>flex-basis</code> are like peanut butter and jelly.
+          </p>
+
+          <p class="alert alert-info">
+            If you want a flex item to take up the entire row, simply set its
+            <code>flex-basis</code> to <code>100%</code>.
+          </p>
+        </section>
+        <section>
+          <h2>Ordering (flex item)</h2>
+          <p><a href="demo05.html">Demo</a></p>
+          <p>
+            You can change the display order (without messing with the HTML!) for
+            individual flex items by specifying the <code>order</code> property.
+          </p>
+          <p>
+            By default, all flex items have an order of <code>0</code>. Flex items
+            are displayed from least to greatest <code>order</code>, so to put an
+            element at the start, you can change its <code>order</code> to
+            <code>-1</code>.
+          </p>
+<pre class="code">
+/* display me first! */
+.thing {
+  order: -1;
+}</pre>
+        </section>
+        <section>
+          <h2>Aligning (flex item)</h2>
+          <p><a href="demo06.html">Demo</a></p>
+          <p>
+            Like the <code>align-items</code> property on the flex container, you can
+            specify alignment of individual flex items along the <strong>cross
+              axis</strong> by using the <code>align-self</code> property. This will
+            override the cross axis alignment set on the flex container.
+          </p>
+        </section>
+        <section>
+          <h2>Classwork</h2>
+          <p>With a partner, complete the Flexbox exercises provided in zip on Moodle.</p>
+        </section>
+        <section>
+          <h2>HW</h2>
+          <p>
+            Complete the Flexbox assignment posted to Moodle:
+          </p>
+          <ul>
+            <li>
+              For mobile screens, use Flexbox to display the <code>.special</code>
+              element above all of the <code>.color</code> elements.
+              <br>
+              <img src="images/wk6-hw-screenshot-mobile.png" alt="">
+            </li>
+            <li>
+              For screens 760px and wider, use Flexbox to:
+              <ul>
+                <li>
+                  Display the first two and last two <code>.color</code> elements
+                  on the same row. Each <code>.color</code> element should have a
+                  <code>flex-basis</code> of 48%. The horizontal free space should
+                  be placed in-between the two side by side <code>.color</code>
+                  elements.
+                </li>
+                <li>
+                  Display the <code>.special</code> element in-between the two rows
+                  <code>.color</code> elements. The <code>.special</code> element
+                  should be the full width of the <code>.container</code>.
+                </li>
+              </ul>
+              <br>
+              <img src="images/wk6-hw-screenshot-tablet.png" alt="">
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Next Week!</h2>
+          <ul>
+            <li>Midterm work session</li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer class="mt-3">
+      <a href="/ewt-fa-2016">&larr; Go back</a>
+    </footer>
+  </body>
+</html>

@@ -1,73 +1,56 @@
 body {
   font-family: 'Menlo', 'Lucida Console', monospace;
   margin: 1em;
-  line-height: 2em;
-}
+  line-height: 2em; }
 
 a {
-  color: #000;
-}
-
-a:hover {
-  color: #888;
-}
+  color: #000; }
+  a:hover {
+    color: #888; }
 
 h1 {
   font-size: 2em;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 h2 {
   font-size: 1.5em;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 h3 {
   font-size: 1.17em;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 nav ul {
-  list-style: none;
-}
-
+  list-style: none; }
 nav a {
-  margin-bottom: 1em;
-}
-
-nav a:after {
-  content: '\2192';
-  position: absolute;
-  padding-left: .5em;
-}
+  margin-bottom: 1em; }
+  nav a::after {
+    content: '\2192';
+    position: absolute;
+    padding-left: .5em; }
 
 main {
-  width: 70%;
-}
+  width: 70%; }
 
 article p {
-  margin: 1em 0;
-}
+  margin: 1em 0; }
 
-article section {
-  margin-bottom: 2em;
-}
-
-section ul {
-  margin-left: 1.2em;
-  list-style-type: square;
-}
-
-section ol {
-  list-style-type: decimal;
-  margin-left: 1.8em;
-}
+section {
+  margin-bottom: 2em; }
+  section ul {
+    margin-left: 1.2em;
+    list-style-type: square; }
+  section ol {
+    list-style-type: decimal;
+    margin-left: 1.8em; }
 
 .mt-3 {
-  margin-top: 3em;
-}
+  margin-top: 3em; }
 
 .code {
   background: #eee;
-  padding: 1em;
-}
+  padding: 1em; }
+  .code.inline {
+    padding: .5em; }
+
+/*# sourceMappingURL=main.css.map */

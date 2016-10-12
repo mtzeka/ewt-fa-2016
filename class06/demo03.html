@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Web Emergent Technologies - Fall 2016</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <style>
+      .container {display: flex; border: 10px solid #000; flex-wrap: wrap;}
+      .box {padding: 20px 50px;}
+      .box1 {background: gray;}
+      .box2 {background: orange;}
+      .box3 {background: purple;}
+      .box4 {background: pink;}
+      .box5 {background: olive;}
+      .box6 {background: tomato;}
+      .box7 {background: lightskyblue;}
+      .box8 {background: yellowgreen;}
+      .box9 {background: goldenrod;}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Flexbox Demo - Aligning items</h1>
+      <h2>10.12.2016</h2>
+    </header>
+    <main class="mt-3">
+      <article>
+        <section>
+          <h2>Main axis alignment</h2>
+        </section>
+        <section>
+          <h3>justify-content: flex-start; (default)</h3>
+          <div class="container">
+            <div class='box box1'>1</div>
+            <div class='box box2'>2</div>
+            <div class='box box3'>3</div>
+            <div class='box box4'>4</div>
+          </div>
+        </section>
+        <section>
+          <h3>justify-content: center;</h3>
+          <div class="container" style="justify-content: center;">
+            <div class='box box1'>1</div>
+            <div class='box box2'>2</div>
+            <div class='box box3'>3</div>
+            <div class='box box4'>4</div>
+          </div>
+        </section>
+        <section>
+          <h3>justify-content: flex-end;</h3>
+          <div class="container" style="justify-content: flex-end;">
+            <div class='box box1'>1</div>
+            <div class='box box2'>2</div>
+            <div class='box box3'>3</div>
+            <div class='box box4'>4</div>
+          </div>
+        </section>
+        <section>
+          <h3>justify-content: space-between;</h3>
+          <div class="container" style="justify-content: space-between;">
+            <div class='box box1'>1</div>
+            <div class='box box2'>2</div>
+            <div class='box box3'>3</div>
+            <div class='box box4'>4</div>
+          </div>
+        </section>
+        <section>
+          <h3>justify-content: space-around;</h3>
+          <div class="container" style="justify-content: space-around;">
+            <div class='box box1'>1</div>
+            <div class='box box2'>2</div>
+            <div class='box box3'>3</div>
+            <div class='box box4'>4</div>
+          </div>
+        </section>
+        <section>
+          <h2>Cross axis alignment</h2>
+          <section>
+            <h3>align-content: stretch; (default)</h3>
+            <div class="container" style="height: 175px;">
+              <div class='box box1'>1</div>
+              <div class='box box2'>2</div>
+              <div class='box box3'>3</div>
+              <div class='box box4'>4</div>
+              <div class='box box5'>5</div>
+              <div class='box box6'>6</div>
+              <div class='box box7'>7</div>
+              <div class='box box8'>8</div>
+              <div class='box box9'>9</div>
+            </div>
+          </section>
+          <section>
+            <h3>align-content: flex-start;</h3>
+            <div class="container" style="height: 175px; align-content: flex-start;">
+              <div class='box box1'>1</div>
+              <div class='box box2'>2</div>
+              <div class='box box3'>3</div>
+              <div class='box box4'>4</div>
+              <div class='box box5'>5</div>
+              <div class='box box6'>6</div>
+              <div class='box box7'>7</div>
+              <div class='box box8'>8</div>
+              <div class='box box9'>9</div>
+            </div>
+          </section>
+          <section>
+            <h3>align-content: center;</h3>
+            <div class="container" style="height: 175px; align-content: center;">
+              <div class='box box1'>1</div>
+              <div class='box box2'>2</div>
+              <div class='box box3'>3</div>
+              <div class='box box4'>4</div>
+              <div class='box box5'>5</div>
+              <div class='box box6'>6</div>
+              <div class='box box7'>7</div>
+              <div class='box box8'>8</div>
+              <div class='box box9'>9</div>
+            </div>
+          </section>
+          <section>
+            <h3>align-content: flex-end;</h3>
+            <div class="container" style="height: 175px; align-content: flex-end;">
+              <div class='box box1'>1</div>
+              <div class='box box2'>2</div>
+              <div class='box box3'>3</div>
+              <div class='box box4'>4</div>
+              <div class='box box5'>5</div>
+              <div class='box box6'>6</div>
+              <div class='box box7'>7</div>
+              <div class='box box8'>8</div>
+              <div class='box box9'>9</div>
+            </div>
+          </section>
+          <section>
+            <h3>align-content: space-between;</h3>
+            <div class="container" style="height: 175px; align-content: space-between;">
+              <div class='box box1'>1</div>
+              <div class='box box2'>2</div>
+              <div class='box box3'>3</div>
+              <div class='box box4'>4</div>
+              <div class='box box5'>5</div>
+              <div class='box box6'>6</div>
+              <div class='box box7'>7</div>
+              <div class='box box8'>8</div>
+              <div class='box box9'>9</div>
+            </div>
+          </section>
+          <section>
+            <h3>align-content: space-around;</h3>
+            <div class="container" style="height: 175px; align-content: space-around;">
+              <div class='box box1'>1</div>
+              <div class='box box2'>2</div>
+              <div class='box box3'>3</div>
+              <div class='box box4'>4</div>
+              <div class='box box5'>5</div>
+              <div class='box box6'>6</div>
+              <div class='box box7'>7</div>
+              <div class='box box8'>8</div>
+              <div class='box box9'>9</div>
+            </div>
+          </section>
+        </section>
+      </article>
+    </main>
+    <footer class="mt-3">
+      <a href="/ewt-fa-2016/class06">&larr; Go back</a>
+    </footer>
+  </body>
+</html>
