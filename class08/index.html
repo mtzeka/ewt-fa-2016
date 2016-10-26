@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Web Emergent Technologies - Fall 2016</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+  </head>
+  <body>
+    <header>
+      <h1>Intro to React</h1>
+      <h2>10.26.2016</h2>
+    </header>
+    <main class="mt-3">
+      <article>
+        <section>
+          <h2>What is React?</h2>
+          <p>React is a JavaScript framework developed by Facebook that has become extremely popular and favorable in the past couple of years. It has unique features and syntax that has simplified the way we build large applications.</p>
+          <p>"React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes." - <a href="https://facebook.github.io/react/" target="_blank">React</a></p>
+        </section>
+        <section>
+          <h2>What is JSX?</h2>
+          <p>JSX is a syntax extension of JavaScript used in React. It looks like HTML but it is not. Under the hood it is creating React DOM elements in JavaScript. It is not natively supported by browsers and will need to use <a href="http://babeljs.io" target="_blank">Babel</a> to transpile it for us.</p>
+          <p class="code">
+            var element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;<br/><br/>
+
+            // transpiled<br/>
+            var element = React.createElement("h1", null, "Hello World!");
+          </p>
+          <p>Read more about it in the <a href="https://facebook.github.io/react/docs/introducing-jsx.html" target="_blank">React documentation</a></p>
+          <p>Note: JSX isn't HTML so there will be some differences. For example you need to have a wrapping element in place at all times. You also need to use the "className" attribute instead of "class" (yes, casing matters).</p>
+          <p class="code">
+            // invalid<br/>
+            const element = (<br/>
+            &nbsp;&nbsp;&lt;h1 class="title"&gt;Hello, world!&lt;/h1&gt;<br/>
+            &nbsp;&nbsp;&lt;h2&gt;How are you?&lt;/h2&gt;<br/>
+            );<br/><br/>
+
+
+            // valid<br/>
+            const element = (<br/>
+            &nbsp;&nbsp;&lt;header&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 className="title"&gt;Hello, world!&lt;/h1&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;How are you?&lt;/h2&gt;<br/>
+            &nbsp;&nbsp;&lt;/header&gt;<br/>
+            );
+            </div>
+          </p>
+        </section>
+        <section>
+          <h2>What is ES6?</h2>
+          <p>ES is shorthand for EcmaScript, which is the trademarked language specification based on JavaScript standardized by <a href="http://www.ecma-international.org/" target="_blank">Ecma International</a>. At the moment browsers support ES5 which is the JavaScript we have all learned in class. ES6 is not fully implemented in browsers but developers have adapted it and write it in their local environments which then transpiles to ES5. ES6 is known to look a lot cleaner and easier to read -- in the past some developer were using <a href="http://coffeescript.org/" target="_blank">CoffeeScript</a> for cleaner syntax; which is not as widely used since ES6 has been introduced.</p>
+        </section>
+        <section>
+          <h2>What is Babel?</h2>
+          <p>Since ES6 is not fully supported in browsers, but developers like to write in it, just like they like to write sass instead of css. Legibility = happy programmers. Therefore we have to use a transpiler to convert ES6 to ES5. One of the most well known in the industry is Babel.</p>
+          <p>Babel isn't exactly a tool that works on its own, like sass. It's more of a plugin that gets added to your existing build environment. Most popular ways of using babel are via <a href="http://gulpjs.com/" target="_blank">Gulp</a> and <a href="https://webpack.github.io/" target="_blank">webpack</a>.</p>
+          <iframe src="https://babeljs.io/repl/" style="width:100%; height:300px;" scrolling="no"></iframe>
+          <p>For real-time transpiling we can include babel in our HTML file with <a href="https://github.com/Daniel15/babel-standalone" target="_blank">babel-standalone</a>. Not exactly recomended for large applications since it is a lot slower than bundling.</p>
+          <p class="code">
+            &lt;script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"&gt;&lt;/script&gt;
+          </p>
+        </section>
+        <section>
+          <h2>Setting up React in the browser</h2>
+          <p>
+            In a perfect world we'd have a development environment set up with all of our js minified and bundled into a single file. For class purposes we will import our libraries one by one.
+          </p>
+          <p class="code">
+            &lt;script src="https://unpkg.com/react@latest/dist/react.js"&gt;&lt;/script&gt;<br/>
+            &lt;script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"&gt;&lt;/script&gt;<br/>
+            &lt;script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"&gt;&lt;/script&gt;
+          </p>
+          <p>In the body at the very end we'll need to include the JavaScript (NOTE: we have to set the type to "text/babel" since we want it to transpile).</p>
+          <p class="code">
+            &lt;script type="text/babel"&gt;<br/>
+            &nbsp;&nbsp;// JS goes here<br/>
+            &lt;/script&gt;<br/>
+          </p>
+        </section>
+        <section>
+          <h2>Functional components</h2>
+          <p><a href="https://facebook.github.io/react/docs/components-and-props.html" target="_blank">Documentation</a></p>
+          <p>These are stateless components that are defined as functions.</p>
+          <pre class="code">
+function Welcome() {
+  return (
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+  );
+}
+</pre>
+        <p>To render components to the DOM we use the "render" method off of "ReactDOM".</p>
+<pre class="code">ReactDOM.render(&lt;Welcome/&gt;, document.querySelector('.wrapper'));</pre>
+        </section>
+        <section>
+          <h2>Props</h2>
+          <p>In stateless components props are passed as arguments and defined as attributes when the component is used.</p>
+          <pre class="code">
+function Welcome(props) {
+  return (
+    &lt;h1&gt;Hello {props.name}&lt;/h1&gt;
+  );
+}
+
+function App() {
+  return (
+    &lt;Welcome name="Maria"/&gt;
+  );
+}
+
+ReactDOM.render(&lt;App/&gt;, document.querySelector('.wrapper'));</pre>
+        </section>
+        <section>
+          <h2>Demo</h2>
+          <a class="jsbin-embed" href="http://jsbin.com/caceqasuge/embed?js,output">JS Bin on jsbin.com</a>
+          <script src="http://static.jsbin.com/js/embed.min.js?3.39.20"></script>
+        </section>
+        <section>
+          <h2>Resources</h2>
+          <ol>
+            <li><a href="https://facebook.github.io/react/docs/state-and-lifecycle.html" target="_blank">State and Lifecycle</a></li>
+            <li><a href="http://buildwithreact.com/tutorial" target="_blank">Build With React - Tutorial</a></li>
+          </ol>
+        </section>
+        <section>
+          <h2>CW & HW</h2>
+          <ul>
+            <li>
+              <p>Download the zip on moodle and transfer the HTML markup to a React component. Your HTML should only be left with a wrapping div which the component gets rendered to.</p>
+              <ol>
+                <li>Create a &lt;Card/&gt; component that takes 2 props (name and letter) which renders the card element.</li>
+                <li>Create a &lt;App/&gt; component that renders 6 card components.</li>
+                <li>Render &lt;App/&gt; in ".wrapper" using ReactDOM (the contents of ".wrapper" should be emptied out into the components).</li>
+                <li>Extra Credit: Make the &lt;Card/&gt; component work with just passing a name prop (and have the component figure out the initial).</li>
+              </ol>
+            </li>
+            <li>
+              Take CodeAcademy's <a href="https://www.codecademy.com/learn/react-101" target="_blank">Learn ReactJS: Part I</a> course.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Next Week!</h2>
+          <ul>
+            <li>React pt. 2</li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer class="mt-3">
+      <a href="/ewt-fa-2016">&larr; Go back</a>
+    </footer>
+  </body>
+</html>
