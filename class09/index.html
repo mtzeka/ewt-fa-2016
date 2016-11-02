@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Web Emergent Technologies - Fall 2016</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+  </head>
+  <body>
+    <header>
+      <h1>React pt. 2</h1>
+      <h2>11.2.2016</h2>
+    </header>
+    <main class="mt-3">
+      <article>
+        <section>
+          <h2>Review</h2>
+          <ol>
+            <li>
+              What are React components?
+            </li>
+            <li>
+              What are props?
+            </li>
+            <li>
+              What are functional components?
+            </li>
+            <li>
+              What is the syntax for using a component?
+            </li>
+            <li>
+              How do we render to the page?
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2>Stateful components</h2>
+          <p>
+            Stateful components are components with state. What is state? It is like props but private and meant to be maintained within the component. It is also the only way we can cause a component to re-render within itself.
+          </p>
+          <p>
+            A few things we have to do to create a stateful component:
+            <ul>
+              <li>Instead of a function we need to define an ES6 `class` that extends `React.Component`</li>
+              <li>Add a single method of `render`.</li>
+              <li>Instead of a `props` argument we access the props via `this.props` (so you basically just type `this.props` instead of `props`).</li>
+            </ul>
+          </p>
+          <a class="jsbin-embed" href="http://jsbin.com/yoredoz/embed?js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.40.0"></script>
+          <p>You can also use ES5 syntax:</p>
+          <a class="jsbin-embed" href="http://jsbin.com/xemape/embed?js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.40.0"></script>
+          <p>
+            <a href="https://facebook.github.io/react/docs/state-and-lifecycle.html" href="_blank">Read more about it here</a>.
+          </p>
+        </section>
+        <section>
+          <h2>Updating state</h2>
+          <p>Component state is an object just like props is. In order to set a value for state we need to pass an object. (review: objects are data types in javascript that start with are wrapped around `{}`. Read more about them <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer" href="_blank">here</a>).</p>
+          <p>The method that allows us to update state is the following. However there's not much value in updating state in the render method, otherwise we would end up in an endless loop (remember, updating state forces a re-render).</p>
+<pre class="code">
+this.setState({
+  name: 'Maria'
+});
+</pre>
+
+        </section>
+        <section>
+          <h2>Handling events</h2>
+          <p>A perfect use case of when to update state is when you want the UI to update after a browser event. The most common being a click event.</p>
+          <p>The nice thing about React is you just pass an `onClick` prop to define the click event...!</p>
+          <p>To update state when clicking on an event, we just use `setState`. Notice we are also setting an initial state value at the very top of our component. This is the value that the component first renders with.</p>
+          <a class="jsbin-embed" href="http://jsbin.com/qicohos/embed?js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.40.0"></script>
+          <p>ES5 syntax is slightly different, but similar concepts (also notice that since we're in an object we have to separate the methods by commas)--</p>
+          <a class="jsbin-embed" href="http://jsbin.com/coziboq/embed?js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.40.0"></script>
+        </section>
+        <section>
+          <h2>Other supported events</h2>
+          <ul>
+            <li>Clipboard: onCopy, onCut, onPaste</li>
+            <li>Keyboard: onKeyDown, onKeyPress, onKeyUp</li>
+            <li>Focus: onFocus, onBlur</li>
+            <li>Form: onChange, onInput, onSubmit</li>
+            <li>Click: onClick, onContextMenu, onDoubleClick, onDrag, onDragEnd, onDragEnter, onDragExit, onDragLeave, onDragOver, onDragStart, onDrop, onMouseDown, onMouseEnter, onMouseLeave, onMouseMove, onMouseOut, onMouseOver, onMouseUp</li>
+            <li>UI: onScroll</li>
+            <li>Image: onLoad, onError</li>
+            <li>Animation: onAnimationStart, onAnimationEnd, onAnimationIteration</li>
+          </ul>
+          <p><a href="https://facebook.github.io/react/docs/events.html#supported-events" target="_blank">Click here to view full list</a>.</p>
+        </section>
+        <section>
+          <h2>CW/HW</h2>
+          <p>Download moodle zip and work on exercises with a partner or on your own.</p>
+          <p>Take the free lessons from the <a href="https://www.codecademy.com/learn/react-102" target="_blank">CodeAcademy React part II course</a>.</p>
+          <p>If you need to brush up your JavaScript don't hesitate to take CodeAcademy's <a href="https://www.codecademy.com/learn/learn-javascript" target="_blank">Learn JavaScript</a> course.</p>
+        </section>
+        <section>
+          <h2>Next Week!</h2>
+          <ul>
+            <li>React pt. 3</li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer class="mt-3">
+      <a href="/ewt-fa-2016">&larr; Go back</a>
+    </footer>
+  </body>
+</html>
