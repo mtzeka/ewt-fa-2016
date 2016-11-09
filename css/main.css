@@ -43,6 +43,8 @@ section {
   section ol {
     list-style-type: decimal;
     margin-left: 1.8em; }
+  section img {
+    width: 100%; }
 
 .mt-3 {
   margin-top: 3em; }

@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Web Emergent Technologies - Fall 2016</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+  </head>
+  <body>
+    <header>
+      <h1>React pt. 3</h1>
+      <h2>11.9.2016</h2>
+    </header>
+    <main class="mt-3">
+      <article>
+        <section>
+          <h2>Review</h2>
+          <ol>
+            <li>What is component state? </li>
+            <li>When do we know when to use component state? </li>
+            <li>How do we handle click events? How about keyboard events?</li>
+          </ol>
+        </section>
+        <section>
+          <h2>Working with APIs</h2>
+          <p>API stands for "Application Programming Interface", which is more or less a set of defined functionality. This funcationality can come from a library that you import or natively as something that already exists in the browser. Every API comes with documentation.</p>
+          <p>In recent years the term has become popular due to JSON APIs and the the high use of mobile devices. By having a JSON API for your information many devices and websites can tap into it and use it. For example when you view twitter from a mobile app or the website, you still see the same data. This is because both applications have been built to consume an external API for the data.</p>
+        </section>
+        <section>
+          <h2>Fetch API</h2>
+          <p>This is a modern replacement for XMLHttpRequest which is the original implementation of making HTTP requests in the browser.</p>
+          <img src="images/fetch-support.png"/>
+          <p>Fetch is not fully implemented and will to be used with a polyfill will need to be imported by including the following script in the header.</p>
+          <p class="code">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"&gt;&lt;/script&gt;</p>
+          <p>Paste the following code in the console of your browser and see the output.</p>
+<pre class="code">
+fetch('https://www.reddit.com/r/all/search.json?q=javascript')
+  .then(function(response) {
+    response.json().then(function(data) {
+      console.log('data', data)
+    });
+  });</pre>
+          <p>
+            You see something, right? That's the response! You've successfully communicated with the reddit databases.
+          </p>
+        </section>
+        <section>
+          <h2>Building a component with response data</h2>
+          <p>Making a request everytime we render wouldn't be very performant. For advanced use cases react components provide us with <a href="http://busypeoples.github.io/post/react-component-lifecycle/" target="_blank">lifecycle methods</a>. Typically we use `componentWillMount` for initializing requests. Once we get a response we can then set that to state.</p>
+          <a class="jsbin-embed" href="http://jsbin.com/nidupax/embed?js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.40.2"></script>
+        </section>
+        <section>
+          <h2>CW/HW</h2>
+          <ul>
+            <li>Visit <a href="http://discogs.com" target="_blank">discogs.com</a></li>
+            <li>Search for your favorite artist and go to their profile. You will notice the URL will have a number along with a name of the artist.</li>
+            <li>In a component &lt;Artist/&gt; you will make a fetch for the artist's releases when the component mounts. This component will take an "id" as a prop. This component will have a pending state while the data is fetching.</li>
+<pre class="code">
+fetch(`https://api.discogs.com/artists/${this.props.id}/releases`)
+  .then(response => response.json().then(data => this.setState({data})));
+</pre>
+            </li>
+            <li>In another component of &lt;Release/&gt; you will render the release image as well as the title and a link to the release itself it will take "title" and "url" as props (the url will be a combination of the artist ID and the release ID --
+              <p class="code">http://discogs.com/ + artistId + /release/ + id</p>
+            </li>
+            <li>&lt;Artist/&gt; will map over the releases and use &lt;Release/&gt; to render the releases.</li>
+            <li>in &lt;App/&gt; you will use &lt;Artist/&gt;. Pick 2-3 artists.</li>
+            <li>Extra Credit: Fetch artist data as well and render name and bio from data fetched.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Next Week!</h2>
+          <ul>
+            <li>ES6 + Web storage</li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer class="mt-3">
+      <a href="/ewt-fa-2016">&larr; Go back</a>
+    </footer>
+  </body>
+</html>
